@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'core/theme/app_theme.dart';
 import 'core/constants/app_constants.dart';
+import 'features/onboarding/screens/onboarding_screen.dart';
 import 'features/auth/screens/login_screen.dart';
 import 'features/auth/screens/register_screen.dart';
 import 'features/main/main_screen.dart';
@@ -10,6 +11,7 @@ import 'features/subscription/screens/subscription_screen.dart';
 import 'features/settings/screens/settings_screen.dart';
 import 'features/profile/screens/edit_profile_screen.dart';
 import 'features/profile/screens/change_password_screen.dart';
+import 'features/profile/screens/professional_verification_screen.dart';
 import 'shared/providers/auth_provider.dart';
 
 class MusicaTerapeuticaApp extends ConsumerWidget {
@@ -26,6 +28,7 @@ class MusicaTerapeuticaApp extends ConsumerWidget {
       themeMode: ThemeMode.dark,
       home: authState.isAuthenticated ? const MainScreen() : const LoginScreen(),
       routes: {
+        '/onboarding': (context) => const OnboardingScreen(),
         '/login': (context) => const LoginScreen(),
         '/register': (context) => const RegisterScreen(),
         '/main': (context) => const MainScreen(),
@@ -34,6 +37,7 @@ class MusicaTerapeuticaApp extends ConsumerWidget {
         '/settings': (context) => const SettingsScreen(),
         '/edit-profile': (context) => const EditProfileScreen(),
         '/change-password': (context) => const ChangePasswordScreen(),
+        '/professional-verification': (context) => const ProfessionalVerificationScreen(),
       },
     );
   }
