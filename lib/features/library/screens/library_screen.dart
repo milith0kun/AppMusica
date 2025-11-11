@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../core/theme/app_theme.dart';
 import '../../../core/constants/app_constants.dart';
+import '../widgets/favorites_tab.dart';
+import '../widgets/playlists_tab.dart';
+import '../widgets/history_tab.dart';
 
 class LibraryScreen extends ConsumerStatefulWidget {
   const LibraryScreen({super.key});
@@ -43,30 +46,12 @@ class _LibraryScreenState extends ConsumerState<LibraryScreen>
       ),
       body: TabBarView(
         controller: _tabController,
-        children: [
-          _buildFavoritesTab(),
-          _buildPlaylistsTab(),
-          _buildHistoryTab(),
+        children: const [
+          FavoritesTab(),
+          PlaylistsTab(),
+          HistoryTab(),
         ],
       ),
-    );
-  }
-
-  Widget _buildFavoritesTab() {
-    return const Center(
-      child: Text('Favoritos'),
-    );
-  }
-
-  Widget _buildPlaylistsTab() {
-    return const Center(
-      child: Text('Playlists'),
-    );
-  }
-
-  Widget _buildHistoryTab() {
-    return const Center(
-      child: Text('Historial'),
     );
   }
 }
