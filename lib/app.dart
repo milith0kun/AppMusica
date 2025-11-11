@@ -8,6 +8,8 @@ import 'features/main/main_screen.dart';
 import 'features/player/screens/player_screen.dart';
 import 'features/subscription/screens/subscription_screen.dart';
 import 'features/settings/screens/settings_screen.dart';
+import 'features/profile/screens/edit_profile_screen.dart';
+import 'features/profile/screens/change_password_screen.dart';
 import 'shared/providers/auth_provider.dart';
 
 class MusicaTerapeuticaApp extends ConsumerWidget {
@@ -30,6 +32,8 @@ class MusicaTerapeuticaApp extends ConsumerWidget {
         '/player': (context) => const PlayerScreen(),
         '/subscription': (context) => const SubscriptionScreen(),
         '/settings': (context) => const SettingsScreen(),
+        '/edit-profile': (context) => const EditProfileScreen(),
+        '/change-password': (context) => const ChangePasswordScreen(),
       },
     );
   }

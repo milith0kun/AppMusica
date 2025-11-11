@@ -122,6 +122,11 @@ class AuthNotifier extends StateNotifier<AuthState> {
       // Handle error silently or show notification
     }
   }
+
+  // Alias for refreshProfile
+  Future<void> refreshUser() async {
+    await refreshProfile();
+  }
 }
 
 // User Repository Provider

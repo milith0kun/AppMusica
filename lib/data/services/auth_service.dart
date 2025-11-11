@@ -1,6 +1,12 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../core/utils/api_client.dart';
 import '../models/user_model.dart';
+
+// Provider for AuthService
+final authServiceProvider = Provider<AuthService>((ref) {
+  return AuthService();
+});
 
 class AuthService {
   final ApiClient _apiClient;
@@ -99,6 +105,23 @@ class AuthService {
       );
 
       return LoginResponse.fromJson(response.data['data']);
+    } on DioException catch (e) {
+      throw _handleError(e);
+    }
+  }
+
+  Future<void> changePassword({
+    required String currentPassword,
+    required String newPassword,
+  }) async {
+    try {
+      await _apiClient.dio.post(
+        '/auth/change-password',
+        data: {
+          'currentPassword': currentPassword,
+          'newPassword': newPassword,
+        },
+      );
     } on DioException catch (e) {
       throw _handleError(e);
     }

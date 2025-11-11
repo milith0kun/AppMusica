@@ -413,10 +413,10 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
   }
 
   void _navigateToEditProfile(BuildContext context) {
-    // Navigate to edit profile screen
+    Navigator.pushNamed(context, '/edit-profile');
   }
 
   void _navigateToChangePassword(BuildContext context) {
-    // Navigate to change password screen
+    Navigator.pushNamed(context, '/change-password');
   }
 }
